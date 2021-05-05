@@ -1,6 +1,5 @@
-@extends('layouts.docs')
+@extends('layouts.app')
 
-@include('components.navbar')
 @section('content')
     @if (Auth::user()->name=='admin01')
         <div class="container">

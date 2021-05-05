@@ -1,6 +1,4 @@
-@extends('layouts.docs')
-
-@include('components.navbar')
+@extends('layouts.app')
 @section('content')
     @if (in_array('admin',Auth::user()->permision()))
         @php
@@ -20,6 +18,9 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $users=DB::table('users')->get();
+                @endphp
                 @foreach ($users as $a)
                     <tr>
                         <th scope="row">{{$i++}}</th>

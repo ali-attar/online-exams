@@ -22,8 +22,6 @@ Route::post('/permision', [adminController::class,'permision'])->name('permision
 
 Route::view('/permision', 'admin.permision')->name('permision_view');
 
-Auth::routes();
-
 Route::view('/home', 'welcome')->name('home');
 
 Route::view('/home/users', 'admin.users')->name('users');
@@ -41,3 +39,7 @@ Route::get('/class', [classController::class, 'class'])->name('class');
 Route::view('/class/create', 'manager.createClass')->name('create_class_view');
 
 Route::post('/class/create', [classController::class ,'create'])->name('create_class');
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
