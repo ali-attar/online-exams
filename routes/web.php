@@ -40,6 +40,15 @@ Route::view('/class/create', 'manager.createClass')->name('create_class_view');
 
 Route::post('/class/create', [classController::class ,'create'])->name('create_class');
 
+Route::get('/class/{id}/users', [classController::class,'users'])->name('class_users');
+
+Route::get('/class/{id}/users/add', [classController::class,'users_add'])->name('class_add_user_view');
+
+Route::post('/class/{id}/users/add', [classController::class,'users_adding'])->name('class_add_user');
+
+Route::get('/class/{id}/users/{user}', [classController::class,'delete_user'])->name('delete_user_class');
+
+Route::get('/class/{id}/del', [classController::class,'delete_class'])->name('delete_class');
+
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

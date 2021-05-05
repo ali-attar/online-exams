@@ -1,6 +1,5 @@
-@extends('layouts.docs')
+@extends('layouts.app')
 
-@include('components.navbar')
 @section('content')
 @if (in_array('admin' ,Auth::user()->permision()) or in_array('manager',Auth::user()->permision()))
     <div class="container">
@@ -20,7 +19,11 @@
                         <div class="row mb-3">
                             <label for="admin" class="col-sm-2 col-form-label">مدیر کلاس</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="admin" name="admin">
+                                <input type="text" class="form-control" id="admin" name="admin"
+                                    @if (in_array('manager',Auth::user()->permision()) and !in_array('admin' ,Auth::user()->permision()))
+                                        value="{{Auth::user()->name}}" disabled
+                                    @endif
+                                >
                             </div>
                         </div>
 

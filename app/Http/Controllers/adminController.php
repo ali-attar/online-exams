@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\permision;
+use App\Models\classUsers;
+use App\Models\classp;
 use App\Models\User;
 use App\Models\permisionUser;
 
@@ -47,6 +49,8 @@ class adminController extends Controller
         if ($id!=1) {
             User::find($id)->delete();
             permisionUser::where('user_id',$id)->delete();
+            classp::where('admin_id',$id)->delete();
+            classUsers::where('user_id',$id)->delete();
         }
         return redirect()->route('users');
     }

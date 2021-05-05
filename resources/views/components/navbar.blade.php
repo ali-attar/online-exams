@@ -16,7 +16,7 @@
     @endif
     @if (in_array('manager',Auth::user()->permision()))
       <li>
-        <a class="dropdown-item" href="#">class</a>
+        <a class="dropdown-item" href="{{route('class')}}">class</a>
       </li>
     @endif  
     <li><a class="dropdown-item" href="#">Action</a></li>
