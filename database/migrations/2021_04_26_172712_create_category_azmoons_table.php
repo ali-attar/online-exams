@@ -15,6 +15,7 @@ class CreateCategoryAzmoonsTable extends Migration
     {
         Schema::create('category_azmoons', function (Blueprint $table) {
             $table->id();
+            $table->integer('azmoon_id');
             $table->string('name');
             $table->timestamps();
         });

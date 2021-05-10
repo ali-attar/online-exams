@@ -12,4 +12,8 @@ class categoryAzmoon extends Model
     {
         return $this->hasMany(question::class, 'category_azmoon_id', 'id');
     }
+    public function azmoon()
+    {
+        return $this->belongsTo(azmoon::class, 'azmoon_id', 'id');
+    }
 }

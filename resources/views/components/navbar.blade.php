@@ -14,11 +14,19 @@
         </li>
       @endif
     @endif
-    @if (in_array('manager',Auth::user()->permision()))
+    @if (in_array('manager',Auth::user()->permision()) or in_array('admin',Auth::user()->permision() ))
       <li>
         <a class="dropdown-item" href="{{route('class')}}">class</a>
       </li>
+      <li>
+        <a class="dropdown-item" href="{{route('quiz_sets')}}">exam</a>
+      </li>
     @endif  
+    @if (in_array('student',Auth::user()->permision()))
+      <li>
+        <a class="dropdown-item" href="{{route('which_exams')}}">exams</a>
+      </li>
+    @endif
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><hr class="dropdown-divider"></li>

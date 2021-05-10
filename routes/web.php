@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\classController;
+use App\Http\Controllers\quizController;
+use App\Http\Controllers\studentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,50 @@ Route::post('/class/{id}/users/add', [classController::class,'users_adding'])->n
 Route::get('/class/{id}/users/{user}', [classController::class,'delete_user'])->name('delete_user_class');
 
 Route::get('/class/{id}/del', [classController::class,'delete_class'])->name('delete_class');
+
+Route::view('/exam/create', 'quiz.create_quiz')->name('create_quiz');
+
+Route::post('/exam/create', [quizController::class,'create_quiz'])->name('create_quiz_set');
+
+Route::get('/exam', [quizController::class,'quiz_sets'])->name('quiz_sets');
+
+Route::get('/exam/{id}', [quizController::class,'question'])->name('question_view');
+
+Route::get('/exam/{id}/sets', [quizController::class,'question_set_view'])->name('question_set_view');
+
+Route::post('/exam/{id}/sets', [quizController::class,'question_set'])->name('question_set');
+
+Route::get('/exam/{id}/option/{id_question}', [quizController::class,'add_option_view'])->name('add_option_view');
+
+Route::post('/exam/{id}/option/{id_question}', [quizController::class,'add_option'])->name('add_option');
+
+Route::get('/exam/{id}/optiondel/{id_option}', [quizController::class,'del_option'])->name('del_option');
+
+Route::get('/exam/{id}/questiondel/{id_question}', [quizController::class,'del_question'])->name('del_question');
+
+Route::get('/examdel/{id}', [quizController::class,'del_exam'])->name('del_exam');
+
+Route::get('/exam/{id}/editquestion/{id_question}', [quizController::class,'edit_question_view'])->name('edit_question_view');
+
+Route::post('/exam/{id}/editquestion/{id_question}', [quizController::class,'edit_question'])->name('edit_question');
+
+Route::get('/exam/{id}/edit', [quizController::class,'edit_exam_view'])->name('edit_exam_view');
+
+Route::post('/exam/{id}/edit', [quizController::class,'edit_exam'])->name('edit_exam');
+
+Route::get('/exam/{id}/class', [quizController::class,'exam_class'])->name('exam_class');
+
+Route::get('/exam/{id}/addClass', [quizController::class,'add_exam_class_view'])->name('add_exam_class_view');
+
+Route::post('/exam/{id}/addClass', [quizController::class,'add_exam_class'])->name('add_exam_class');
+
+Route::get('/exam/{id}/classusers/{class_id}', [quizController::class,'exam_class_users'])->name('exam_class_users');
+
+Route::get('/exam/{id}/delclass/{class_id}', [quizController::class,'exam_class_del'])->name('exam_class_del');
+
+Route::get('/exams', [studentController::class,'which_exams'])->name('which_exams');
+
+Route::get('/exams/{id}', [studentController::class,'exams_view'])->name('exams_view');
 
 Auth::routes();
 

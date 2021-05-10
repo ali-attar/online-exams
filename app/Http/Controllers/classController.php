@@ -26,8 +26,7 @@ class classController extends Controller
         $class->name=$request->name;
         if (in_array('manager',Auth::user()->permision()) and !in_array('admin' ,Auth::user()->permision())){
             $class->admin_id=Auth::user()->id;
-        }
-        if (!in_array('manager',Auth::user()->permision()) and in_array('admin' ,Auth::user()->permision())){
+        }else{
             $class->admin_id=User::where('name',$request->admin)->first()->id;
         }
         $class->save();

@@ -15,7 +15,11 @@ class CreateAzmoonsTable extends Migration
     {
         Schema::create('azmoons', function (Blueprint $table) {
             $table->id();
+            $table->string('file_name')->nullable();
             $table->integer('admin_id');
+            $table->string('date');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->string('name');
             $table->timestamps();
         });

@@ -12,8 +12,8 @@ class azmoonClass extends Model
     {
         return $this->belongsTo(azmoon::class, 'azmoon_id', 'id');
     }
-    public function class()
+    public function classp()
     {
-        return $this->belongsTo(azmoon::class, 'class_id', 'id');
+        return $this->belongsTo(classp::class, 'class_id', 'id');
     }
 }

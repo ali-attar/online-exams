@@ -52,7 +52,7 @@ class User extends Authenticatable
     }
     public function classUsers()
     {
-        return $this->hasMany(classUsers::class, 'student_id', 'id');
+        return $this->hasMany(classUsers::class, 'user_id', 'id');
     }
     public function answer()
     {
