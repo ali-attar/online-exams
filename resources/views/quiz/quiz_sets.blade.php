@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <a href="{{route('create_quiz')}}" class="btn btn-success">new quiz with question pdf</a>
         <a href="{{route('create_quiz')}}" class="btn btn-primary">new quiz</a>
         @foreach ($quizs as $quiz)
         <div class="card" style="width: 28rem;">

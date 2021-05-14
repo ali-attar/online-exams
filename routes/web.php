@@ -96,5 +96,11 @@ Route::get('/exams', [studentController::class,'which_exams'])->name('which_exam
 
 Route::get('/exams/{id}', [studentController::class,'exams_view'])->name('exams_view');
 
+Route::post('/exams/{id}', [studentController::class,'exams_submit'])->name('exams_submit');
+
+Route::get('/exams/{id}/result', [studentController::class,'exam_result'])->name('exams_result');
+
+Route::get('/exampdf/create', [quizController::class,'exam_pdf_create'])->name('exam_pdf_create');
+
 Auth::routes();
 
